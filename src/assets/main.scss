@@ -1,0 +1,13 @@
+$primary-color: #2BD999;
+$main-font: 'Inter', sans-serif;
+
+html, #app, body, p {
+  margin: 0;
+  padding: 0;
+  font-family: $main-font;
+
+  #app{
+    margin: 0 200px 0 200px;
+  }
+}
+

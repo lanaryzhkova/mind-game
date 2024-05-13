@@ -1,5 +1,8 @@
 import { createStore } from 'vuex'
 import {metamaskModule} from "/src/stores/metamaskModule";
+import {getModule} from "/src/stores/getModule";
+import {authModule} from "/src/stores/authModule";
+
 
 
 export default createStore({
@@ -13,5 +16,7 @@ export default createStore({
   },
   modules: {
     metamask: metamaskModule,
+    get: getModule,
+    auth: authModule
   }
 })

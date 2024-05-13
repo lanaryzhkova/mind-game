@@ -30,7 +30,7 @@ export default {
     border: none;
     cursor: pointer;
     width: fit-content;
-    margin: auto 0;
+    margin: 0;
 
       p{
         font-weight: 700;

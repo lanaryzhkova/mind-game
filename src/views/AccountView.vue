@@ -1,19 +1,22 @@
 <template>
-  <user-card
-      img="https://gas-kvas.com/uploads/posts/2023-02/1675495562_gas-kvas-com-p-luchshie-kartinki-dlya-fonovogo-risunka-ra-18.jpg"
-      wallet="0x86287aC98Eb221912fF27d0d80730f84566CFCAA"
-      name="Пока котёнок"
-      level="3"/>
-  <reward-list/>
-  <div class="theory">
-    <img src="/src/assets/images/theory.svg" alt="">
-    <p @click="$router.push('/theory')">Смотреть теоретические материалы</p>
+  <div class="all" v-if="!isExist">
   </div>
-  <div class="play">
-    <my-button @click="$router.push('/levels')" fontSize="30px" backgButton="#B7AEF2">
-      Начать игру!
-    </my-button>
-  </div>
+    <user-card
+        wallet="0x86287aC98Eb221912fF27d0d80730f84566CFCAA"
+        name="Пока котёнок"
+        level="3"/>
+    <reward-list/>
+    <div class="theory">
+      <img src="/src/assets/images/theory.svg" alt="">
+      <p @click="$router.push('/theory')">Смотреть теоретические материалы</p>
+    </div>
+    <div class="play">
+      <my-button @click="$router.push('/levels')" fontSize="30px" backgButton="#B7AEF2">
+        Начать игру!
+      </my-button>
+    </div>
+
+
 
 </template>
 
@@ -39,6 +42,7 @@ export default {
   computed: {
     ...mapState({
       connected: state => state.metamask.connected,
+      isExist: state => state.auth.isExist,
     })
   },
 }
@@ -60,4 +64,13 @@ export default {
     display: flex;
     justify-content: center;
   }
+  .all{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
 </style>

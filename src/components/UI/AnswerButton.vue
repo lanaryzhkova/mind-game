@@ -25,5 +25,6 @@ button{
   cursor: pointer;
   border: none;
   background: #2BD999;
+  margin: auto;
 }
 </style>

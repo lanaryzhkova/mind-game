@@ -1,5 +1,5 @@
 <template>
-    <button @click="$router.push(`/level/${this.level}`)" :disabled="this.isDisabled">
+    <button @click="$router.push(`/level/${this.level.number}`)" :disabled="this.isDisabled">
       <slot></slot>
     </button>
 </template>
@@ -10,7 +10,7 @@ export default {
   props:{
     backgLButton: '',
     borderStyle: '',
-    level: 0,
+    level: '',
     isDisabled: true
   }
 }

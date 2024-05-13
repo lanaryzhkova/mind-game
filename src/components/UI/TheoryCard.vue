@@ -1,10 +1,9 @@
 <template>
 <div class="wrapper">
   <div class="topic" @click="openContent">
-    {{topic}}
+    <p>{{topic}}</p>
   </div>
-  <div class="content" v-if="isClick">
-    {{content}}
+  <div class="content" v-if="isClick" v-html="content">
   </div>
 </div>
 </template>
@@ -38,16 +37,39 @@ export default {
     gap: 10px;
 
     .topic{
-      height: 80px;
+      height: 50px;
       background: #FFF6A6;
       border-radius: 50px;
-      width: 100px;
+      min-width: 800px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 4px 32px;
+      cursor: pointer;
+
+        p{
+          font-weight: 700;
+          font-size: 30px;
+        }
     }
     .content{
-      height: 80px;
       border: 5px solid #FED1C3;
-      border-radius: 0 0 50px 50px;
-      width: 100px;
+      border-radius: 0 0 30px 30px;
+      display: flex;
+      flex-direction: column;
+      min-width: 800px;
+      max-width: 100%;
+      height: fit-content;
+      padding: 32px 32px;
+      justify-content: left;
+      align-items: center;
+      font-weight: 430;
+      font-size: 25px;
+      text-align: left;
+      gap: 10px;
+      margin: 0 0 16px 0;
     }
   }
 </style>

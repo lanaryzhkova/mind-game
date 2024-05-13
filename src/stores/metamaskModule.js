@@ -3,7 +3,7 @@ import {ethers} from "ethers";
 
 export const metamaskModule = {
     state: () => ({
-        connected: Boolean,
+        connected: false,
         wallet: '',
         signer: ''
     }),
@@ -36,9 +36,7 @@ export const metamaskModule = {
             catch (e) {
                 console.log(e)
             }
-
         }
-
     },
     namespace: true
 }

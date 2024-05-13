@@ -1,32 +1,43 @@
 <template>
 <div class="wrapper">
   <div class="user">
-    <img :src=img alt="">
-    <p><strong>{{name}} ({{ wallet.slice(0, 6) }}...{{wallet.slice(-3)}})</strong></p>
-    <p>Уровень {{ level }}/10</p>
+    <img :src=imageCharacter alt="">
+    <p style="text-align: center"><strong>{{account.name}} ({{ (account.wallet || '').slice(0, 6) }}...{{(account.wallet || '').slice(-3)}})</strong></p>
+    <p>Уровень {{ account.number }}/10</p>
   </div>
-  <div class="logout">
-    <p>выйти <br> из аккаунта</p>
-    <img src="/src/assets/images/logout.svg" alt="">
-  </div>
+  <button @click="logout">
+    <div class="logout">
+      <p>выйти <br> из аккаунта</p>
+      <img src="/src/assets/images/logout.svg" alt="">
+    </div>
+  </button>
 </div>
 </template>
 
 <script>
-import {mapState} from "vuex";
+import {mapActions, mapState} from "vuex";
 
 export default {
   name: "UserCard",
   props: {
-    img: '',
     name: '',
     level: '',
   },
-
+  data(){
+    return{
+    }
+  },
+  methods: {
+    ...mapActions({
+      logout: "logout",
+    }),
+  },
   computed: {
     ...mapState({
       connected: state => state.metamask.connected,
       wallet: state => state.metamask.wallet,
+      account: state => state.auth.account,
+      imageCharacter: state => state.auth.imageCharacter
     })
   },
 }
@@ -40,7 +51,12 @@ export default {
     width: 100%;
     justify-content: center;
     padding: 42px 0 42px 0;
-
+    button{
+      padding: 0;
+      border: none;
+      background: transparent;
+      height: fit-content;
+    }
     .user{
       display: flex;
       flex-direction: column;

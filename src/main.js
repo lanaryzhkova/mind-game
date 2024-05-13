@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import { createApp} from 'vue'
 import store from './stores';
 
 import App from './App.vue'

@@ -26,7 +26,7 @@ export default {
     font-weight: 700;
     font-size: 40px;
     cursor: pointer;
-
+    width: 100%;
     p {
       margin: 0;
     }
